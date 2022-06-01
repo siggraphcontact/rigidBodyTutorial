@@ -77,13 +77,13 @@ public:
 		rigidBodySystem.clear();
 		polyscope::removeAllStructures();
 
-        std::cout << "Loading sphere-on-box scenario." << std::endl;
+    std::cout << "Loading sphere-on-box scenario." << std::endl;
 
 		// Create a sphere.
 		RigidBody* bodySphere = new RigidBody(1.0f, new Sphere(0.5f), "resources/sphere.obj");
 		bodySphere->x.y() = 4.0f;
-        bodySphere->omega = Eigen::Vector3f(10.0f, 0.0f, 0.0f);
-        bodySphere->mesh->setTransparency(0.8f);
+    bodySphere->omega = Eigen::Vector3f(10.0f, 0.0f, 0.0f);
+    bodySphere->mesh->setTransparency(0.8f);
 
 		RigidBody* bodyBox = new RigidBody(1.0f, new Box(Eigen::Vector3f(10.0f, 0.4f, 10.0f)), "resources/box_bot.obj");
 		bodyBox->fixed = true;
@@ -91,8 +91,8 @@ public:
 		rigidBodySystem.addBody(bodySphere);
 		rigidBodySystem.addBody(bodyBox);
 
-        bodySphere->mesh->setSurfaceColor({ 0.1f, 1.0f, 0.2f });
-        bodyBox->mesh->setSurfaceColor({ 0.2f, 0.2f, 0.2f });
+    bodySphere->mesh->setSurfaceColor({ 0.1f, 1.0f, 0.2f });
+    bodyBox->mesh->setSurfaceColor({ 0.2f, 0.2f, 0.2f });
 	}
 
 };
