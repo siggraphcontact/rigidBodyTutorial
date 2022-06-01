@@ -10,6 +10,9 @@ enum eGeometryType { kSphere, kBox };
 class Geometry
 {
 public:
+
+    virtual ~Geometry() {}
+
     virtual Eigen::Matrix3f computeInertia(float _mass) = 0;
 
     virtual eGeometryType getType() const  = 0;
