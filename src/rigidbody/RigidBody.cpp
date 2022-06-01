@@ -47,9 +47,14 @@ RigidBody::RigidBody(float _mass, Geometry* _geometry, const std::string& _filen
 void RigidBody::updateInertiaMatrix()
 {
     if( !fixed )
+    {
+        I = q * Ibody * q.inverse();
         Iinv = q * IbodyInv * q.inverse();
+    }
     else
+    {
         Iinv.setZero();
+    }
 }
 
 void RigidBody::addForceAtPos(const Eigen::Vector3f& pos, const Eigen::Vector3f& force)

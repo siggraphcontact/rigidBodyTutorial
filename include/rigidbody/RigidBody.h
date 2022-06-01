@@ -12,6 +12,7 @@ namespace polyscope
     class SurfaceMesh;
 }
 
+
 // Rigid body class.
 // Stores properties for rigid body simulation, including
 // the geometry and list of contact constraints.
@@ -29,7 +30,7 @@ public:
 
     bool fixed;                         // Flag for a static rigid body. Default is 'false'.
     float mass;                         // Mass.
-    Eigen::Matrix3f Iinv;               // Inverse inertia matrix
+    Eigen::Matrix3f I, Iinv;            // Inertia and inverse inertia matrix (global)
     Eigen::Matrix3f Ibody, IbodyInv;    // Inertia and inverse inertia in the local body frame.
     Eigen::Vector3f x;                  // Position.
     Eigen::Quaternionf q;               // Orientation.
@@ -45,7 +46,7 @@ public:
     std::unique_ptr<Geometry> geometry; // The geometry of the rigid body.
     std::vector<Contact*> contacts;     // Pointer array of contact constraints involving this body.
 
-    polyscope::SurfaceMesh* mesh;       // Used for rendering the body.
+    polyscope::SurfaceMesh* mesh;                         // Used for rendering
 
 
 };
