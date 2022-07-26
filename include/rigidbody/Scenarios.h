@@ -19,13 +19,13 @@ public:
 
         // Create two layers of "marbles", in a grid layout
         //
-        for(int i = 0; i < 9; ++i)
+        for (int i = 0; i < 9; ++i)
         {
-            for(int j = 0; j < 9; ++j)
+            for (int j = 0; j < 9; ++j)
             {
                 RigidBody* body1 = new RigidBody(1.0f, new Sphere(0.5f), "resources/sphere.obj");
-                body1->x.x() = -4.0f + (float)i*1.0f;
-                body1->x.z() = -4.0f + (float)j*1.0f;
+                body1->x.x() = -4.0f + (float)i * 1.0f;
+                body1->x.z() = -4.0f + (float)j * 1.0f;
                 body1->x.y() = 2.0f;
                 rigidBodySystem.addBody(body1);
                 body1->mesh->setSurfaceColor({ 1.0f, 0.1f, 0.1f });
@@ -50,11 +50,11 @@ public:
         body2->fixed = true;
         body3->fixed = true;
         body4->fixed = true;
-        body0->mesh->setSurfaceColor({ 0.6f, 0.6f, 0.6f });
-        body1->mesh->setSurfaceColor({ 0.6f, 0.6f, 0.6f });
-        body2->mesh->setSurfaceColor({ 0.6f, 0.6f, 0.6f });
-        body3->mesh->setSurfaceColor({ 0.6f, 0.6f, 0.6f });
-        body4->mesh->setSurfaceColor({ 0.6f, 0.6f, 0.6f });
+        body0->mesh->setSurfaceColor({ 0.6f, 0.6f, 0.6f })->setSmoothShade(false);
+        body1->mesh->setSurfaceColor({ 0.6f, 0.6f, 0.6f })->setSmoothShade(false);
+        body2->mesh->setSurfaceColor({ 0.6f, 0.6f, 0.6f })->setSmoothShade(false);
+        body3->mesh->setSurfaceColor({ 0.6f, 0.6f, 0.6f })->setSmoothShade(false);
+        body4->mesh->setSurfaceColor({ 0.6f, 0.6f, 0.6f })->setSmoothShade(false);
         body0->x.x() = 4.75f;
         body1->x.x() = -4.75f;
         body2->x.z() = 4.75f;
@@ -72,27 +72,27 @@ public:
 
     // Simple sphere falling on a box.
     //
-	static void createSphereOnBox(RigidBodySystem& rigidBodySystem)
-	{
-		rigidBodySystem.clear();
-		polyscope::removeAllStructures();
+    static void createSphereOnBox(RigidBodySystem& rigidBodySystem)
+    {
+        rigidBodySystem.clear();
+        polyscope::removeAllStructures();
 
-    std::cout << "Loading sphere-on-box scenario." << std::endl;
+        std::cout << "Loading sphere-on-box scenario." << std::endl;
 
-		// Create a sphere.
-		RigidBody* bodySphere = new RigidBody(1.0f, new Sphere(0.5f), "resources/sphere.obj");
-		bodySphere->x.y() = 4.0f;
-    bodySphere->omega = Eigen::Vector3f(10.0f, 0.0f, 0.0f);
-    bodySphere->mesh->setTransparency(0.8f);
+        // Create a sphere.
+        RigidBody* bodySphere = new RigidBody(1.0f, new Sphere(0.5f), "resources/sphere.obj");
+        bodySphere->x.y() = 4.0f;
+        bodySphere->omega = Eigen::Vector3f(10.0f, 0.0f, 0.0f);
+        bodySphere->mesh->setTransparency(0.8f);
 
-		RigidBody* bodyBox = new RigidBody(1.0f, new Box(Eigen::Vector3f(10.0f, 0.4f, 10.0f)), "resources/box_bot.obj");
-		bodyBox->fixed = true;
+        RigidBody* bodyBox = new RigidBody(1.0f, new Box(Eigen::Vector3f(10.0f, 0.4f, 10.0f)), "resources/box_bot.obj");
+        bodyBox->fixed = true;
 
-		rigidBodySystem.addBody(bodySphere);
-		rigidBodySystem.addBody(bodyBox);
+        rigidBodySystem.addBody(bodySphere);
+        rigidBodySystem.addBody(bodyBox);
 
-    bodySphere->mesh->setSurfaceColor({ 0.1f, 1.0f, 0.2f });
-    bodyBox->mesh->setSurfaceColor({ 0.2f, 0.2f, 0.2f });
-	}
+        bodySphere->mesh->setSurfaceColor({ 0.1f, 1.0f, 0.2f });
+        bodyBox->mesh->setSurfaceColor({ 0.2f, 0.2f, 0.2f })->setSmoothShade(false);
+    }
 
 };
