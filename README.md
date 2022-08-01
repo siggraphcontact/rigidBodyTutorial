@@ -3,7 +3,7 @@
 ## Tutorial: Rgid Body Simulation with Contact and Friction
 
 
-![Rigid body sim](https://siggraphcontact.github.io/assets/images/rigidbodysim_sshot1.png "Rigid body sim")
+![Rigid body sim](https://siggraphcontact.github.io/assets/images/rigidbodytut.png "Rigid body sim")
 
 A tutorial on implementing a simple C++ rigid body simulator.
 
